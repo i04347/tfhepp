@@ -4,14 +4,14 @@ add_library(tfhe++ ${tfhe++_sources})
 target_include_directories(
   tfhe++
   PUBLIC
-    ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/thirdparties/spqlios
-    ${PROJECT_SOURCE_DIR}/thirdparties/fftw
-    ${PROJECT_SOURCE_DIR}/thirdparties/spqliox_aarch64
-    ${PROJECT_SOURCE_DIR}/thirdparties/spqliox_aarch64/xbyak_aarch64/xbyak_aarch64
-    ${PROJECT_SOURCE_DIR}/thirdparties/hexl/hexl/hexl/include
-    ${PROJECT_SOURCE_DIR}/thirdparties/randen
-    ${PROJECT_SOURCE_DIR}/thirdparties/cereal/include)
+    /root/HE3DB/thirdparty/TFHEpp/include
+    /root/HE3DB/thirdparty/TFHEpp/thirdparties/spqlios
+    /root/HE3DB/thirdparty/TFHEpp/thirdparties/fftw
+    /root/HE3DB/thirdparty/TFHEpp/thirdparties/spqliox_aarch64
+    /root/HE3DB/thirdparty/TFHEpp/thirdparties/spqliox_aarch64/xbyak_aarch64/xbyak_aarch64
+    /root/HE3DB/thirdparty/TFHEpp/thirdparties/hexl/hexl/hexl/include
+    /root/HE3DB/thirdparty/TFHEpp/thirdparties/randen
+    /root/HE3DB/thirdparty/TFHEpp/thirdparties/cereal/include)
 
 if(USE_RANDEN)
   target_link_libraries(tfhe++ INTERFACE randen)
@@ -36,7 +36,7 @@ if(USE_FFTW3)
   else()
     target_link_libraries(tfhe++ INTERFACE fftw3)
   endif()
-elseif(USE_SPQLIOX_AARCH64)
+  elseif(USE_SPQLIOX_AARCH64)
   target_link_libraries(tfhe++ INTERFACE spqliox_aarch64 xbyak_aarch64)
 elseif(USE_HEXL)
   target_link_libraries(tfhe++ INTERFACE spqlios HEXL::hexl)

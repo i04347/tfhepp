@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(tfhe++ CXX)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS
-    "-march=native -O3 -g -funroll-loops -Wall -Wextra -pedantic -Wno-sign-compare"
+set(CMAKE_CXX_FLAGS "-std=c++17 -march=armv8-a+crypto -O3 -g -funroll-loops -Wall -Wextra -pedantic -Wno-sign-compare -fpermissive -fPIC -no-pie"
 )
 
 option(USE_RANDEN "Use randen as CSPRNG" ON)
@@ -11,10 +9,10 @@ option(USE_CGGI19 "Use the parameter set proposed in CGGI19" OFF)
 option(USE_CONCRETE "Use the parameter set proposed in CONCRETE" OFF)
 option(USE_MKL "Use Intel MKL" OFF)
 option(USE_FFTW3 "Use FFTW3" OFF)
-option(USE_SPQLIOX_AARCH64 "Use spqliox_aarch64" OFF)
+option(USE_SPQLIOX_AARCH64 "Use spqliox_aarch64" ON)
 option(USE_HEXL "Use Intel HEXL" OFF)
 option(ENABLE_TEST "Build tests" OFF)
-option(ENABLE_BENCHMARK "Build benchmarks" OFF)
+option(ENABLE_BENCHMARK "Build benchmarks" ON)
 option(ENABLE_TUTORIAL "Build tutorial" OFF)
 option (USE_PERF "Use Google Profiler" OFF)
 
@@ -50,7 +48,7 @@ if(USE_HEXL)
 # set(CMAKE_CXX_FLAGS
 #     "-march=native -O3 -g -funroll-loops -Wall -Wextra -pedantic -Wno-sign-compare -mprefer-vector-width=512"
 # )
-endif()
+  endif()
 
 # For OpenMP
 find_package(OpenMP)

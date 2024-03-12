@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../benchmark"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"array": "cpp"
+		}
+	}
+}
